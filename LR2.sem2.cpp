@@ -7,11 +7,11 @@ class Family
 {
 protected:
     string surname;
-    uint16_t member_count;
-    uint64_t total_income;
+    int member_count;
+    int total_income;
 
 public:
-    Family(string s_name, uint16_t m_count, uint64_t t_income);
+    Family(string s_name, int m_count, int t_income);
     long double average_income() const;
     void print() const;
     ~Family();
@@ -21,26 +21,24 @@ class Region
 {
 protected:
     string r_name;
-    uint64_t payoff_size;
-    uint64_t aver_income_threshold;
+    int payoff_size;
+    int aver_income_threshold;
 
 public:
-    Region(string name, uint64_t p_size, uint64_t ai_threshold);
+    Region(string name, int p_size, int ai_threshold);
     void print() const;
     ~Region();
 };
 
-class RegionFamily
-    : public Family
-    , public Region
+class RegionFamily : public Family, public Region
 {
 public:
     RegionFamily(string s_name,
-        uint16_t m_count,
-        uint64_t t_income,
+        int m_count,
+        int t_income,
         string name,
-        uint64_t p_size,
-        uint64_t ai_threshold);
+        int p_size,
+        int ai_threshold);
     long double average_income() const;
     void print() const;
     ~RegionFamily();
@@ -49,7 +47,7 @@ public:
 
 
 
-Family::Family(string s_name, uint16_t m_count, uint64_t t_income)
+Family::Family(string s_name, int m_count, int t_income)
 {
     surname = s_name;
     member_count = m_count;
@@ -73,7 +71,7 @@ Family::~Family()
     cout << "Деструктор. семья." << endl;
 }
 
-Region::Region(string name, uint64_t p_size, uint64_t ai_threshold)
+Region::Region(string name, int p_size, int ai_threshold)
 {
     r_name = name;
     payoff_size = p_size;
@@ -94,11 +92,11 @@ Region::~Region()
 }
 
 RegionFamily::RegionFamily(std::string s_name,
-    uint16_t m_count,
-    uint64_t t_income,
+    int m_count,
+    int t_income,
     string name,
-    uint64_t p_size,
-    uint64_t ai_threshold) : Family(s_name, m_count, t_income), Region(name, p_size, ai_threshold)
+    int p_size,
+    int ai_threshold) : Family(s_name, m_count, t_income), Region(name, p_size, ai_threshold)
 {
 }
 
@@ -133,14 +131,14 @@ int
 main()
 {
     setlocale(LC_ALL, "ru");
-    uint16_t number_of_participants = 10;
-    uint64_t total_income0 = 12345;
-    uint64_t total_income1 = 123;
-    std::string name0 = "SN0";
-    std::string name1 = "SN1";
+    int number_of_participants = 10;
+    int total_income0 = 12345;
+    int total_income1 = 123;
+    string name0 = "SN0";
+    string name1 = "SN1";
 
-    uint64_t payoff_size = 103;
-    uint64_t aver_income_threshold = 100;
+    int payoff_size = 103;
+    int aver_income_threshold = 100;
     string r_name = "RN";
 
     cout << endl;
