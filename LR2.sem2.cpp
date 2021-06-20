@@ -117,14 +117,14 @@ RegionFamily::average_income() const
 void
 RegionFamily::print() const
 {
-    cout << "РегионСемейный объект:" << endl;
+    cout << "Регион Семейный объект:" << endl;
     Family::print();
     Region::print();
 }
 
 RegionFamily::~RegionFamily()
 {
-    cout << "Деструктор. РегионСемья" << endl;
+    cout << "Деструктор. Регион Семья" << endl;
 }
 
 int
@@ -134,35 +134,33 @@ main()
     int number_of_participants = 10;
     int total_income0 = 12345;
     int total_income1 = 123;
-    string name0 = "SN0";
-    string name1 = "SN1";
+    string name0 = "Bruno";
+    string name1 = "Stero";
 
     int payoff_size = 103;
     int aver_income_threshold = 100;
-    string r_name = "RN";
+    string r_name = "RUS";
 
     cout << endl;
 
     Family f(name0, number_of_participants, total_income0);
-    cout << "Семейный образец объекта" << endl;
     f.print();
     cout << "Средний заработок: " << f.average_income() << endl;
 
     cout << endl;
 
     Region r(r_name, payoff_size, aver_income_threshold);
-    cout << "Объект образца региона" << endl;
     r.print();
 
     RegionFamily rf0
-        (name0,
-        number_of_participants,  
-        total_income0, 
-        r_name,        
-        payoff_size,   
+    (name0,
+        number_of_participants,
+        total_income0,
+        r_name,
+        payoff_size,
         aver_income_threshold);
     RegionFamily rf1
-        (name1,
+    (name1,
         number_of_participants,
         total_income1,
         r_name,
@@ -171,13 +169,13 @@ main()
 
     cout << endl;
 
-    cout << "Пример объекта RegionFamily #0" << endl;
+    cout << "Пример объекта 1" << endl;
     rf0.print();
     cout << "Средний заработок: " << rf0.average_income() << endl;
 
     cout << endl;
 
-    cout << "Пример объекта RegionFamily #1" << endl;
+    cout << "Пример объекта 2" << endl;
     rf1.print();
-    cout << "Средний заработок: " << rf1.average_income() << endl;
+    cout << "Средний заработок: " << rf1.average_income() << endl << endl;
 }
